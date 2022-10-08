@@ -12,7 +12,10 @@ object BLInterp {
     case Not(e) => ! interp(e)
     case And(l,r) => interp(l) && interp(r)
     case Or(l,r)  => interp(l) || interp(r)
-    case Xor(l,r) => // ... need code ...
+    // added in the case xor, either one and not the other or
+    // the other and not the one.
+    case Xor(l,r) => (interp(l) && ! interp(r)) || 
+      (! interp(l) && interp(r))  // ... need code ...
   }
 
   def apply(s:String, debug:Int = 0): Boolean = {

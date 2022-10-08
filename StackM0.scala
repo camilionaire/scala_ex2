@@ -42,6 +42,8 @@ object StackM0 {
 
   import scala.collection.mutable.Stack
   def exec(p:Program, debug:Int = 0): Boolean = {
+    // replaced 'val' with 'var' in line below.
+    // that did not work, but instead got it going.
     val stk = new Stack[Boolean]()    
     def steps(instrs: List[Instr]): Boolean = instrs match {
       case Nil => stk.pop()
