@@ -21,8 +21,12 @@ object BLComp {
 
   def apply(s:String, debug:Int = 0): Boolean = {
     if (debug > 0) println("Input:  " + s)
+    // here it parses the string input in form of "(and (or (or f f) t) t)"
+    // that equals true by the way after interpretting, returns as a bunch
+    // of compiles stuff like above. is written in BoolLand.scala
     val e: Expr = BLParse(s)
     if (debug > 0) println("AST:    " + e)
+    // compile then returns the function from above.
     val p: Program = compile(e)
     if (debug > 0) println("Target: " + p)
     exec(p,debug)

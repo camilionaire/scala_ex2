@@ -15,6 +15,7 @@ object StackM0 {
   case object NOT extends Instr
   case object AND extends Instr
   case object OR  extends Instr
+  case object XOR  extends Instr
 
   case class ExecException(string: String) extends RuntimeException
 
@@ -37,6 +38,11 @@ object StackM0 {
           val v2 = stk.pop()
           val v1 = stk.pop()
           stk.push(v1 || v2)
+        } // adding this in to do the testing?... I think?
+        case XOR => {
+          val v2 = stk.pop()
+          val v1 = stk.pop()
+          stk.push((v1 && !v2) || (!v1 && v2))
         }
       }
 

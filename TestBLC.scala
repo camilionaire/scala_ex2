@@ -17,11 +17,12 @@ import BLComp._
 
 class TestBLC extends FunSuite {
 
-  test("correctly compile simple expressions" {
-
-//    assertResult(
-
-
+  test("correctly compile simple expressions") {
+    assertResult(false)(BLComp("(not (and t (not f)))"))
+    assertResult(true)(BLComp("(and (or (or f f) t) t)"))
+    assertResult(true)(BLComp("(or (or (and f f) t) f)"))
+    assertResult(true)(BLComp("(and (xor t f) (xor f t))"))
+    assertResult(true)(BLComp("(xor (and t f) (or f t))"))
   }
 
 //  test("correctly interpret simple exprs") {
