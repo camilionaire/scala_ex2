@@ -15,6 +15,7 @@
 import org.scalatest.FunSuite
 import BLComp._
 
+// basically just a copy of TestBLI.scala file.
 class TestBLC extends FunSuite {
 
   test("correctly compile simple expressions") {
@@ -24,14 +25,6 @@ class TestBLC extends FunSuite {
     assertResult(true)(BLComp("(and (xor t f) (xor f t))"))
     assertResult(true)(BLComp("(xor (and t f) (or f t))"))
   }
-
-//  test("correctly interpret simple exprs") {
-//  assertResult(false)(BLInterp("(not (and t (not f)))"))
-//  assertResult(true)(BLInterp("(and (or (or f f) t) t)"))
-//  assertResult(true)(BLInterp("(or (or (and f f) t) f)"))
-//  assertResult(true)(BLInterp("(and (xor t f) (xor f t))"))
-//  assertResult(true)(BLInterp("(xor (and t f) (or f t))"))
-//}
 
 }
 

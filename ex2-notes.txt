@@ -1,0 +1,15 @@
+Name: Camilo Schaser-Hughes
+Class: CS558 - Programming Languages, Prof. Li
+Date: October 9, 2022
+
+Exercise 2:
+
+a) <xc> <yc> AND <xc> NOT OR
+b) <xc> <yc> AND <xc> NOT <yc> NOT AND OR
+c) <xc> <yc> NOT AND <xc> NOT <yc> AND OR
+
+So, some comments on the exercise.  I think I finally have my env set up
+which is good.  I did add an XOR to the STACKM0.scala file.  I wasn't sure
+how to add in the code to the BLComp file for the xor expression without it.
+I did a lot of commenting in the files / methods as well just to help
+understand what was going on with everything.
