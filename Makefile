@@ -21,4 +21,4 @@ testbli: bl bli TestBLI.class
 testblc: bl sm0 blc TestBLC.class
 
 clean:	
-	rm *.class
+	rm ./*.class

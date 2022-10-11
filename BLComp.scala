@@ -18,11 +18,14 @@ object BLComp {
     case Not(e)   => compile(e) ::: (NOT::Nil)
     case And(l,r) => compile(l) ::: compile(r) ::: (AND::Nil)
     case Or(l,r)  => compile(l) ::: compile(r) ::: (OR::Nil)
-    case Xor(l,r) => compile(l) ::: compile(r) ::: (NOT::Nil) ::: (AND::Nil)
-      compile(l) ::: (NOT::Nil) ::: compile(r) ::: (AND::Nil) ::: (OR::Nil)
+    case Xor(l,r) => {
+      val left = compile(l)
+      val right =  compile(r)
+      left ::: right ::: (NOT::Nil) ::: (AND::Nil) ::: left ::: (NOT::Nil) ::: right ::: (AND::Nil) ::: (OR::Nil)
+    }
     // ... need code ... put the code ^^^ there, i guess uses
     // so I don't know if I need to put the XOR in the StackM0.scala file
-    // now too.
+    // now too. NO, I SHOULD NOT HAVE DONE THAT...
   }
 
   def apply(s:String, debug:Int = 0): Boolean = {
