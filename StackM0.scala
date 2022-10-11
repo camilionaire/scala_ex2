@@ -15,7 +15,8 @@ object StackM0 {
   case object NOT extends Instr
   case object AND extends Instr
   case object OR  extends Instr
-  case object XOR  extends Instr
+  // WAS NOT SUPPOSED TO PUT THIS IN THERE.
+  // case object XOR  extends Instr
 
   case class ExecException(string: String) extends RuntimeException
 
@@ -39,11 +40,13 @@ object StackM0 {
           val v1 = stk.pop()
           stk.push(v1 || v2)
         } // adding this in to do the testing?... I think?
-        case XOR => {
-          val v2 = stk.pop()
-          val v1 = stk.pop()
-          stk.push((v1 && !v2) || (!v1 && v2))
-        }
+        // BIG FAT NOPE!  WAS NOT WHAT I WAS SUPPOSED TO DO
+        // THE STACK IS THE MACHINE, SO THE ACTUAL COMPUTER.
+        // case XOR => {
+        //   val v2 = stk.pop()
+        //   val v1 = stk.pop()
+        //   stk.push((v1 && !v2) || (!v1 && v2))
+        // }
       }
 
   import scala.collection.mutable.Stack
